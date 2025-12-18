@@ -1,6 +1,6 @@
 # UniPCB
 
-PCB\_control
+### PCB\_control
 
 ☕️ : Training
 
@@ -22,11 +22,11 @@ data/
 
 ├── conditions/
 
-&nbsp;   ├── condition-1/
+    ├── condition-1/
 
-&nbsp;   ├── condition-2/
+    ├── condition-2/
 
-&nbsp;   ...
+    ...
 
 ...
 
@@ -42,7 +42,7 @@ Kindly note that the local adapter and global adapter must be trained separately
 
 
 
-PCB\_detect
+### PCB\_detect
 
 📌 Usage Instructions (Training \& Validation)
 
