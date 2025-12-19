@@ -1,4 +1,4 @@
-# UniPCB
+# UniPCB: Unifying Generation and Detection for PCB Defect Inspection
 
 ### PCB\_control
 
