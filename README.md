@@ -1,14 +1,26 @@
 # UniPCB: Unifying Generation and Detection for PCB Defect Inspection
 
-### PCB\_control
+This repository provides a unified framework for PCB defect inspection, combining conditional image generation (`PCB_control`) and defect detection (`PCB_detect`).
 
-☕️ : Training
+## PCB_control
 
-You should first download the pretrained weights of Stable Diffusion and put it to PCB\_control/ckpt/ folder. Then, you can get the initial weights for training by:
+### Training
 
-python utils/prepare\_weights.py init\_local ckpt/v1-5-pruned.ckpt configs/local\_v15.yaml ckpt/init\_local.ckpt
+1. **Download Pretrained Weights**  
+   Download the pretrained Stable Diffusion weights (`v1-5-pruned.ckpt`) and place it in `PCB_control/ckpt/`.
 
-The 4 arguments are mode, pretrained SD weights, model configs and output path for the initial weights.
+2. **Prepare Initialization Weights**  
+   Run the following command to generate initial weights for training:
+   ```bash
+   python utils/prepare_weights.py init_local \
+       ckpt/v1-5-pruned.ckpt \
+       configs/local_v15.yaml \
+       ckpt/init_local.ckpt
+
+Arguments: mode, pretrained SD weights, config file, output path.
+
+
+
 
 
 
