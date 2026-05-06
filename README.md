@@ -15,9 +15,20 @@
 This is the official PyTorch codes for the paper:
 
 >**UniPCB: Unifying Generation and Detection for PCB Defect Inspection**<br>  [Huan Zhang<sup>1</sup>](), [Lianghong Tan<sup>2</sup>](), [Yichu Xu<sup>3</sup>](), [Jiangzhong Cao<sup>4</sup>](), [Huanqi Wu<sup>5</sup>](), [Linwei Zhu<sup>6</sup>](), [Xu Zhang<sup>7</sup>]()<br>
-> <sup>1</sup>Guangdong University of Technology, <sup>2</sup>Guangdong University of Technology, <sup>3</sup>, <sup>4</sup>Guangdong University of Technology, <sup>5</sup>Guangdong University of Technology, <sup>6</sup>, <sup>7</sup>Wuhan University,
+> <sup>1</sup>Guangdong University of Technology, <sup>2</sup>Guangdong University of Technology, <sup>3</sup>, <sup>4</sup>Guangdong University of Technology, <sup>5</sup>Guangdong University of Technology, <sup>6</sup>, <sup>7</sup>Wuhan University
 
-This repository provides a unified framework for PCB defect inspection, combining conditional image generation (`PCB_control`) and defect detection (`PCB_detect`).
+![teaser_img](gen_model.png)
+![teaser_img](det_model.png)
+
+## 📖 Overview
+
+**UniPCB** is a **generation-assisted PCB defect inspection framework** that unifies multimodal controllable defect synthesis with feature-enhanced detection, jointly alleviating data scarcity and insufficient representation within a single model, combining conditional image generation (`PCB_control`) and defect detection (`PCB_detect`).
+
+## ✨ Highlights
+
+- **UniPCB**: A generation-assisted PCB defect inspection pipeline to systematically enhance inspection performance.
+- **Multi-modal Controlled Defect Synthesis**: A latent diffusion architecture with multi-scale embedding and conditional modulation to improve sample fidelity and diversity.
+- **Feature-Enhanced Defect Detection**: Effectively capture both global contextual dependencies and fine-grained local textures.
 
 ## PCB_control
 
@@ -36,11 +47,6 @@ This repository provides a unified framework for PCB defect inspection, combinin
 
 Arguments: mode, pretrained SD weights, config file, output path.
 
-
-
-
-
-
 To prepare the training data, please ensure that they are placed in the ./data/ folder and organized in the following manner:
 
 data/
@@ -52,16 +58,14 @@ data/
 ├── conditions/
 
     ├── condition-1/
-
+    
     ├── condition-2/
-
+    
     ...
-
+    
 ...
 
 Specifically, you have to put the original images into PCB\_control/data/images/ folder and the extracted conditions into Pcb\_control/data/conditions/condition-N/ folder. And PCB\_control/data/anno.txt is the annotation file, where each line represents a training sample and is divided into two parts: 1) file ID and 2) annotation. Please ensure the consistency between the file IDs in ./data/anno.txt， ./data/images/ and ./data/conditions/condition-N/ directories.
-
-
 
 Now, you can train with you own data simply by:
 
@@ -70,8 +74,7 @@ python src/train/train.py
 Kindly note that the local adapter and global adapter must be trained separately. Additionally, you can customize the training configurations in PCB\_control/src/train/train.py and PCB\_control/configs/.
 
 
-
-### PCB\_detect
+## PCB\_detect
 
 📌 Usage Instructions (Training \& Validation)
 
@@ -84,27 +87,13 @@ Since this project is built on top of Ultralytics, users can directly follow the
 
 Ultralytics Documentation: https://docs.ultralytics.com
 
-
-
 Training Guide: https://docs.ultralytics.com/modes/train/
 
 Trainning Example: yolo task=detect mode=train model="path/to/rtdetr-IRSA-CAMF.yaml" data="path/to/dataset.yaml" device=0,1 pretrained=False imgsz=512
 
-
-
 Inference Guide: https://docs.ultralytics.com/modes/predict/
 
 Inference Example: yolo predict imgsz=512 model="path/to/rtdetr\_irsa\_camf.pt" source="path/to/images/" device=1
-
-
-
-🛠 Installation
-
-python=3.9
-
-pytorch=2.40
-
-
 
 📁 Model Configuration
 
