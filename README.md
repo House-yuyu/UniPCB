@@ -1,4 +1,21 @@
-# UniPCB: Unifying Generation and Detection for PCB Defect Inspection
+<div align="center">
+   
+## 🛰️ UniPCB: Unifying Generation and Detection for PCB Defect Inspection
+
+[![Paper](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/Python-3.9+-yellow.svg)](https://www.python.org/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.4+-orange.svg)](https://pytorch.org/)
+![Visitors](https://visitor-badge.laobi.icu/badge?page_id=House-yuyu.UniPCB)
+
+</div>
+
+---
+
+This is the official PyTorch codes for the paper:
+
+>**UniPCB: Unifying Generation and Detection for PCB Defect Inspection**<br>  [Huan Zhang<sup>1</sup>](), [Lianghong Tan<sup>2</sup>](), [Yichu Xu<sup>3</sup>](), [Jiangzhong Cao<sup>4</sup>](), [Huanqi Wu<sup>5</sup>](), [Linwei Zhu<sup>6</sup>](), [Xu Zhang<sup>7</sup>]()<br>
+> <sup>1</sup>Guangdong University of Technology, <sup>2</sup>Guangdong University of Technology, <sup>3</sup>, <sup>4</sup>Guangdong University of Technology, <sup>5</sup>Guangdong University of Technology, <sup>6</sup>, <sup>7</sup>Wuhan University,
 
 This repository provides a unified framework for PCB defect inspection, combining conditional image generation (`PCB_control`) and defect detection (`PCB_detect`).
 
