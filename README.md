@@ -14,8 +14,9 @@
 
 This is the official PyTorch codes for the paper:
 
->**UniPCB: Unifying Generation and Detection for PCB Defect Inspection**<br>  [Huan Zhang<sup>1</sup>](https://scholar.google.com.hk/citations?user=bJjd_kMAAAAJ&hl=zh-CN), [Lianghong Tan<sup>1</sup>](), [Yichu Xu<sup>2</sup>](), [Jiangzhong Cao<sup>1</sup>](), [Huanqi Wu<sup>1</sup>](), [Linwei Zhu<sup>3</sup>](), [Xu Zhang<sup>2</sup>](https://scholar.google.com.hk/citations?hl=zh-CN&view_op=list_works&gmla=AIqSsVv0Hi6v-HFtCPhkMQfNslqeoLmOAJsutMfgrvgOo7bff33oYvwukfAev9Q6ISPykrPHVCJfU2CU-q_B0cFlX1u8IHF0MRzgnxgsfFMMT7cB6HH3KDcaugHfTTDbx4Y&user=xDDy-DwAAAAJ)<br>
+>**UniPCB: Unifying Generation and Detection for PCB Defect Inspection**<br>  [Huan Zhang<sup>1</sup>](https://scholar.google.com.hk/citations?user=bJjd_kMAAAAJ&hl=zh-CN), [Lianghong Tan<sup>1</sup>](), [Yichu Xu<sup>2</sup>](), [Jiangzhong Cao<sup>1📧</sup>](), [Huanqi Wu<sup>1</sup>](), [Linwei Zhu<sup>3</sup>](), [Xu Zhang<sup>2📧</sup>](https://scholar.google.com.hk/citations?hl=zh-CN&view_op=list_works&gmla=AIqSsVv0Hi6v-HFtCPhkMQfNslqeoLmOAJsutMfgrvgOo7bff33oYvwukfAev9Q6ISPykrPHVCJfU2CU-q_B0cFlX1u8IHF0MRzgnxgsfFMMT7cB6HH3KDcaugHfTTDbx4Y&user=xDDy-DwAAAAJ)<br>
 > <sup>1</sup>Guangdong University of Technology, <sup>2</sup>Wuhan University, <sup>3</sup>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences
+> <sup>📧</sup> Corresponding author
 
 ![teaser_img](gen_model.png)
 ![teaser_img](det_model.png)
