@@ -1,6 +1,5 @@
-<div align="center">
-   
-## 🛰️ UniPCB: Unifying Generation and Detection for PCB Defect Inspection
+
+## ⚙️ UniPCB: Unifying Generation and Detection for PCB Defect Inspection
 
 [![Paper](https://img.shields.io/badge/Paper-arXiv-red)](https://arxiv.org/abs/2605.04635)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -14,8 +13,8 @@
 
 This is the official PyTorch codes for the paper:
 
->**UniPCB: Unifying Generation and Detection for PCB Defect Inspection**<br>  [Huan Zhang<sup>1</sup>](), [Lianghong Tan<sup>2</sup>](), [Yichu Xu<sup>3</sup>](), [Jiangzhong Cao<sup>4</sup>](), [Huanqi Wu<sup>5</sup>](), [Linwei Zhu<sup>6</sup>](), [Xu Zhang<sup>7</sup>]()<br>
-> <sup>1</sup>Guangdong University of Technology, <sup>2</sup>Guangdong University of Technology, <sup>3</sup>, <sup>4</sup>Guangdong University of Technology, <sup>5</sup>Guangdong University of Technology, <sup>6</sup>, <sup>7</sup>Wuhan University
+>**UniPCB: Unifying Generation and Detection for PCB Defect Inspection**<br>  [Huan Zhang<sup>1</sup>](), [Lianghong Tan<sup>1</sup>](), [Yichu Xu<sup>2</sup>](), [Jiangzhong Cao<sup>1</sup>](), [Huanqi Wu<sup>1</sup>](), [Linwei Zhu<sup>3</sup>](), [Xu Zhang<sup>1</sup>]()<br>
+> <sup>1</sup>Guangdong University of Technology, <sup>2</sup>Wuhan University, <sup>3</sup>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences
 
 ![teaser_img](gen_model.png)
 ![teaser_img](det_model.png)
