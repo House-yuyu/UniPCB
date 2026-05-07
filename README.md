@@ -32,74 +32,179 @@ This is the official PyTorch codes for the paper:
 
 ## PCB_control
 
+`PCB_control` implements the controllable PCB defect generation module. It supports training with multimodal conditions and can be adapted to customized PCB defect datasets.
+
 ### Training
 
-1. **Download Pretrained Weights**  
-   Download the pretrained Stable Diffusion weights (`v1-5-pruned.ckpt`) and place it in `PCB_control/ckpt/`.
+#### 1. Download Pretrained Weights
 
-2. **Prepare Initialization Weights**  
-   Run the following command to generate initial weights for training:
-   ```bash
-   python utils/prepare_weights.py init_local \
-       ckpt/v1-5-pruned.ckpt \
-       configs/local_v15.yaml \
-       ckpt/init_local.ckpt
+Download the pretrained Stable Diffusion weights `v1-5-pruned.ckpt` and place them under:
 
-Arguments: mode, pretrained SD weights, config file, output path.
+```bash
+PCB_control/ckpt/
+```
 
-To prepare the training data, please ensure that they are placed in the ./data/ folder and organized in the following manner:
+#### 2. Prepare Initialization Weights
 
-data/
+Run the following command to initialize the training weights:
 
-├── anno.txt
+```bash
+cd PCB_control
 
-├── images/
+python utils/prepare_weights.py init_local \
+    ckpt/v1-5-pruned.ckpt \
+    configs/local_v15.yaml \
+    ckpt/init_local.ckpt
+```
 
-├── conditions/
+The arguments are organized as follows:
 
-    ├── condition-1/
-    
-    ├── condition-2/
-    
-    ...
-    
-...
+```text
+mode | pretrained SD weights | config file | output path
+```
 
-Specifically, you have to put the original images into PCB\_control/data/images/ folder and the extracted conditions into Pcb\_control/data/conditions/condition-N/ folder. And PCB\_control/data/anno.txt is the annotation file, where each line represents a training sample and is divided into two parts: 1) file ID and 2) annotation. Please ensure the consistency between the file IDs in ./data/anno.txt， ./data/images/ and ./data/conditions/condition-N/ directories.
+#### 3. Prepare Training Data
 
-Now, you can train with you own data simply by:
+Please organize the training data under the `PCB_control/data/` directory as follows:
+
+```text
+PCB_control/
+└── data/
+    ├── anno.txt
+    ├── images/
+    │   ├── xxx.png
+    │   ├── yyy.png
+    │   └── ...
+    └── conditions/
+        ├── condition-1/
+        │   ├── xxx.png
+        │   ├── yyy.png
+        │   └── ...
+        ├── condition-2/
+        │   ├── xxx.png
+        │   ├── yyy.png
+        │   └── ...
+        └── ...
+```
+
+Specifically:
+
+- Place the original PCB images in:
+
+```bash
+PCB_control/data/images/
+```
+
+- Place the extracted condition maps in:
+
+```bash
+PCB_control/data/conditions/condition-N/
+```
+
+- Prepare the annotation file:
+
+```bash
+PCB_control/data/anno.txt
+```
+
+Each line in `anno.txt` should contain two parts:
+
+```text
+file_id annotation
+```
+
+Please make sure that the file IDs are consistent across:
+
+```text
+PCB_control/data/anno.txt
+PCB_control/data/images/
+PCB_control/data/conditions/condition-N/
+```
+
+#### 4. Start Training
+
+After preparing the data and initialization weights, run:
+
+```bash
+cd PCB_control
 
 python src/train/train.py
+```
 
-Kindly note that the local adapter and global adapter must be trained separately. Additionally, you can customize the training configurations in PCB\_control/src/train/train.py and PCB\_control/configs/.
+Please note that the **local adapter** and **global adapter** need to be trained separately. You can customize the training settings in:
 
+```text
+PCB_control/src/train/train.py
+PCB_control/configs/
+```
 
-## PCB\_detect
+---
 
-📌 Usage Instructions (Training \& Validation)
+## PCB_detect
 
-This repository provides the Python/PyTorch implementation of my customized modules and model variants based on the Ultralytics YOLO framework.
-All training, validation, and inference workflows follow the official Ultralytics documentation.
+`PCB_detect` implements the defect detection module. The customized modules and model variants are built upon the [Ultralytics YOLO](https://docs.ultralytics.com) framework.
 
-🚀 Training \& Validation
+All training, validation, and inference workflows follow the official Ultralytics usage.
 
-Since this project is built on top of Ultralytics, users can directly follow the official guides:
+### Usage Instructions
 
-Ultralytics Documentation: https://docs.ultralytics.com
+#### 1. Model Configuration
 
-Training Guide: https://docs.ultralytics.com/modes/train/
+The customized model configuration files are located in:
 
-Trainning Example: yolo task=detect mode=train model="path/to/rtdetr-IRSA-CAMF.yaml" data="path/to/dataset.yaml" device=0,1 pretrained=False imgsz=512
+```bash
+PCB_detect/ultralytics/cfg/models/rt-detr/
+```
 
-Inference Guide: https://docs.ultralytics.com/modes/predict/
+During training, specify the corresponding YAML configuration file as the model path.
 
-Inference Example: yolo predict imgsz=512 model="path/to/rtdetr\_irsa\_camf.pt" source="path/to/images/" device=1
+#### 2. Training
 
-📁 Model Configuration
+Please refer to the official Ultralytics training guide:
 
-The custom model configuration files are located in:
+```text
+https://docs.ultralytics.com/modes/train/
+```
 
-PCB\_detect/ultralytics/cfg/models/rt-detr
+Example:
 
-Simply reference the corresponding YAML file during training.
+```bash
+yolo task=detect \
+    mode=train \
+    model="path/to/rtdetr-IRSA-CAMF.yaml" \
+    data="path/to/dataset.yaml" \
+    device=0,1 \
+    pretrained=False \
+    imgsz=512
+```
 
+#### 3. Validation
+
+You can validate a trained model using:
+
+```bash
+yolo task=detect \
+    mode=val \
+    model="path/to/rtdetr_irsa_camf.pt" \
+    data="path/to/dataset.yaml" \
+    device=0 \
+    imgsz=512
+```
+
+#### 4. Inference
+
+Please refer to the official Ultralytics inference guide:
+
+```text
+https://docs.ultralytics.com/modes/predict/
+```
+
+Example:
+
+```bash
+yolo predict \
+    imgsz=512 \
+    model="path/to/rtdetr_irsa_camf.pt" \
+    source="path/to/images/" \
+    device=0
+```
