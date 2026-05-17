@@ -18,8 +18,12 @@ This is the official PyTorch codes for the paper:
 > <sup>1</sup>Guangdong University of Technology, <sup>2</sup>Wuhan University, <sup>3</sup>Shenzhen Institutes of Advanced Technology, Chinese Academy of Sciences<br>
 > <sup>📧</sup> Corresponding author
 
-![teaser_img](gen_model.png)
-![teaser_img](det_model.png)
+<table align="center">
+  <tr>
+    <td align="center"><img src="gen_model.png" alt="Generation model" width="100%"></td>
+    <td align="center"><img src="det_model.png" alt="Detection model" width="100%"></td>
+  </tr>
+</table>
 
 ## 📖 Overview
 
